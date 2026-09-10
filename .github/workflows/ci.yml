@@ -18,4 +18,12 @@ jobs:
           test -f src/index.html
           test -f src/style.css
           test -f src/app.js
-          echo "Project files OK"
+
+      - name: Check stylesheet reference
+        run: grep 'href="style.css"' src/index.html
+
+      - name: Check JavaScript reference
+        run: grep 'src="app.js"' src/index.html
+
+      - name: All checks passed
+        run: echo "All checks passed"
